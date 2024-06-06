@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es">
+<head>
+<title>Flow Music en vivo gratis - A Puro Fútbol</title>
+<meta property="og:locale" content="es_ES" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="A Puro Fútbol" />
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+<meta name="msapplication-TileImage" content="https://apurofutbol.net/favicon.png">
+
+<meta name="description" content="Ver canal Flow Music en vivo y en directo online. En A Puro Fútbol mira todos los recitales gratis por Internet">
+<meta property="og:title" content="Click para ver canal Flow Music en VIVO y en DIRECTO por Internet gratis - A Puro Fútbol" />
+<meta property="og:description" content="A Puro Fútbol. Ver canal Flow Music en VIVO y en directo ONLINE gratis por Internet" />
+<meta property="og:url" content="https://apurofutbol.net/en-vivo/flow" />
+<link rel="canonical" href="https://apurofutbol.net/en-vivo/flow" />
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $.get("https://apurofutbol.net/html/head.html", function(data) {
+                $("head").append(data);
+            });
+        });
+    </script>
+ <script>
+ function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+ id = getParameterByName('p');
+if(getParameterByName('embed')){
+   embed = getParameterByName('embed');
+}else{
+   if(getParameterByName('r')){
+       embed = getParameterByName('r');
+    }else{
+       embed = false;
+}  
+}
+</script>
+ </head>
+<body>
+
+<div id="header"></div>
+	<script>
+            $(document).ready(function() {
+                $("#header").load("https://apurofutbol.net/html/header.html");
+            });
+         </script>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Columna principal -->
+            <div class="col-md-9 col-sm-12 order-sm-1 p-0 m-0 col-custom col-main" style="background-color: #f0f0f0;">
+
+<div class="options">
+
+  <!-- Agrega más botones según sea necesario -->
+</div>
+		 <!-- Columna principal REPRODUCTOR -->
+                <div class="embed-responsive embed-responsive-16by9" bis_skin_checked="1">
+                                        </script><script type="text/javascript">
+                      if (embed) {document.write('<iframe allow="autoplay; encrypted-media" frameborder="0" allowfullscreen src="'+atob(embed)+'" scrolling="no"></iframe>');}else{document.write('<img class="embed-responsive-item" src="https://img82.pixhost.to/images/0/329272052_error.png" width="100%">')}
+                          </script>                </div>
+
+            </div>
+
+            <!-- Columna secundaria CHAT -->
+            <div class="col-md-3 col-sm-12 order-sm-2 p-0 m-0 col-custom col-sidebar" style="background-color: #dcdcdc; height: 100vh">
+		 <iframe id="miIframe" scrolling="no" width="100%" height="100%" allowfullscreen="" src=""></iframe>
+
+<script>
+  var valorCanal = obtenerValorDeURL('chat');
+  $("#miIframe").attr("src", "https://apurofutbol.net/chat/chat.html?default=elnuevoemperador&canal=" + valorCanal);
+  function obtenerValorDeURL(parametro) {
+    var url = window.location.href;
+    parametro = parametro.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + parametro + "(=([^&#]*)|&|#|$)"),
+        resultados = regex.exec(url);
+    if (!resultados) return null;
+    if (!resultados[2]) return '';
+    return decodeURIComponent(resultados[2].replace(/\+/g, " "));
+  }
+</script>
+            </div>
+        </div>
+    </div>
+
+    <br /><br />
+
+<div id="ads"></div>
+<script>
+            $(document).ready(function() {
+                $("#ads").load("../../html/ads.html");
+            });
+         </script>
+</div>
+
+
+<div class="container">   
+      
+           
+</div>  
+      
+
+
+<div id="footer"></div>
+<script>
+            $(document).ready(function() {
+                $("#footer").load("../../html/footer.html");
+            });
+         </script>
+</div>
+
+</body>
+</html>

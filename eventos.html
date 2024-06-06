@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <title>Evento en vivo - A Puro Fútbol</title>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.get("https://apurofutbol.net/html/head.html", function(data) {
+                $("head").append(data);
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
+        var id = getParameterByName('p');
+        var embed;
+
+        if (getParameterByName('embed')) {
+            embed = getParameterByName('embed');
+        } else {
+            if (getParameterByName('r')) {
+                embed = getParameterByName('r');
+            } else {
+                embed = false;
+            }
+        }
+
+        var urlorigin = embed ? atob(embed) : '';
+        var urlObj = new URL(urlorigin);
+        var partesDominio = urlObj.hostname.split('.');
+        var subdominio = partesDominio.length > 2 ? partesDominio.slice(0, -2).join('.') : '';
+        var dominio = partesDominio.slice(-2).join('.');
+        var page = urlObj.pathname + urlObj.search + urlObj.hash;
+
+        var http = "https://";
+
+        var dominioprincipal = "freenhl.xyz";
+        var dominiostar = "appflow.dev.ar";
+
+        console.log(dominio);
+        console.log(page);
+        var urlgen;
+
+        if (page.startsWith('/starjwc4.html?get=https://live')) {
+            urlgen = "https://" + dominiostar + page;
+            console.log("La urlgenerada para Star es: " + urlgen);
+        } 
+        else if (dominio === "futbolgratisenhd.com" || dominio === "techflower.bio" || dominio === "librefutboltv.com" || dominio === "dearch.vin" || dominio === "derealfama.one" || dominio === "dumper-true.com" || dominio === "maindots.co" || dominio === "rusticotv.foundation" || dominio === "futbollibrehd.net" || dominio === "whitemouseapple.com" || dominio === "alwaysdomain01.online" || dominio === "forlessmake.store" || dominio === "librefutboltvhd.com") {
+            urlgen = "https://" + (subdominio ? subdominio + "." : "") + dominioprincipal + page;
+        } else if (dominio === "lura.live" || dominio === "voodc.com") {
+            urlgen = "https://apurofutbol.net/embed/iframesand?get=" + embed;
+        }
+        else if (dominio === "streamtp.live") {
+            urlgen = "https://apurofutbol.net/embed/iframenosand?get=" + embed;
+        } else {
+            if (subdominio == "") {
+                urlgen = "http" + dominio + page;
+            } else {
+                urlgen = "http" + subdominio + "." + dominio + page;
+            }
+        }
+
+        function insertIframe(url) {
+            var iframe = document.createElement('iframe');
+            iframe.className = "embed-responsive-item";
+            iframe.frameBorder = "0";
+            iframe.allow = "autoplay; encrypted-media";
+            iframe.allowFullscreen = true;
+            iframe.scrolling = "no";
+            iframe.src = url;
+            document.querySelector('.embed-responsive').appendChild(iframe);
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            if (embed) {
+                insertIframe(urlgen);
+            }
+        });
+    </script>
+</head>
+<body>
+    <div id="header"></div>
+    <script>
+        $(document).ready(function() {
+            $("#header").load("https://apurofutbol.net/html/header.html"); 
+        });
+    </script>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Columna principal (75% de ancho en pantallas anchas, 100% de ancho en pantallas pequeñas) -->
+            <div class="col-md-9 col-sm-12 order-sm-1 p-0 m-0 col-custom col-main" style="background-color: #f0f0f0;">
+                <div class="embed-responsive embed-responsive-16by9"></div>
+            </div>
+            <!-- Columna secundaria CHAT -->
+            <div class="col-md-3 col-sm-12 order-sm-2 p-0 m-0 col-custom col-sidebar" style="background-color: #dcdcdc; height: 100vh">
+                <iframe id="miIframe" scrolling="no" width="100%" height="100%" allowfullscreen="" src=""></iframe>
+                <script>
+                    function obtenerParametroUrl(nombre) {
+                        const urlParams = new URLSearchParams(window.location.search);
+                        return urlParams.get(nombre);
+                    }
+                    var videoId = obtenerParametroUrl("id");
+                    $("#miIframe").attr("src", "https://apurofutbol.net/chat/chatsmart.html?id=" + encodeURIComponent(videoId));
+                </script>
+            </div>
+        </div>
+    </div>
+    <div id="ads"></div>
+    <script>
+        $(document).ready(function() {
+            $("#ads").load("../../html/ads.html?v2");
+        });
+    </script>
+    <div id="footer"></div>
+    <script>
+        $(document).ready(function() {
+            $("#footer").load("../../html/footer.html");
+        });
+    </script>
+</body>
+</html>

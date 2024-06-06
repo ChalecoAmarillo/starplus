@@ -1,0 +1,85 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+ 
+<style>
+body {
+     background-color: black; /* Establecer el fondo negro */
+      margin: 0;
+      align-items: center;
+      justify-content: center;
+      height: 100vh; /* 100% del alto de la ventana */
+      background-image: url('/assets/img/vI.gif');
+      background-size: cover; /* Ajustar tamaño para cubrir el contenedor */
+      background-position: center; /* Centrar la imagen */
+    background-size: 15%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+.iframe-container {
+  position: relative;
+}
+
+.iframe-container iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.logogh {
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    z-index: 999;
+}
+
+    .logogh {
+        cursor: pointer; /* Cambiar el cursor a una mano */
+    }
+
+    .logogh:hover {
+        cursor: pointer; /* Cambiar el cursor a una mano cuando se pasa el mouse sobre el botón */
+    }
+    </style>
+
+<body>
+<div class="iframe-container">
+    <iframe id="myIframe"   scrolling="no" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" src="" sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation"></iframe>
+
+</div>
+<button class="logogh" onclick="refreshIframe()">
+    <i class="fas fa-redo-alt"></i>
+</button>
+    <script>
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        var urlParam = getParameterByName('get');
+        var iframe = document.getElementById('myIframe');
+        iframe.src = urlParam;
+
+    function refreshIframe() {
+        var iframe = document.getElementById('myIframe');
+        var urlParam = getParameterByName('get');
+        iframe.src = urlParam;
+    }
+
+    </script>
+</body>

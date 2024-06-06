@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Embed</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+          function getParameterByName(name) {
+              name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+              var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                  results = regex.exec(location.search);
+              return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+          }
+              var getURL  = getParameterByName('get');
+              var getIMG  = getParameterByName('img');
+              var getLang = getParameterByName('lang');
+
+        if (getURL == "#") {alert('Vuelve a la pÃƒÆ’Ã‚Â¡gina anterior');}
+        if (getURL == "") {location.href="https://apurofutbol.net";}
+
+      </script>
+<script type="text/javascript">
+  function PlayE(data, mpd){
+   if(data){
+    console.log("Extensión instalada"+ mpd);
+    location.href='chrome-extension://lcipembjfkmeggpihdpdgnjildgniffl/player.html#'+mpd
+   }else{
+    location.href='https://apurofutbol.net/descargar.html';
+   }
+}
+  function detectExtension(callback, mpd) {
+  var img;
+  img = new Image();
+  img.src = "chrome-extension://lcipembjfkmeggpihdpdgnjildgniffl/icon128.png";
+  img.onload = function() {
+  callback(true, mpd);
+  };
+  img.onerror = function() {
+  callback(false);
+  };
+}
+            mpd = atob(getURL)
+            if(/Android|iPhone|iPad|iPod|BlackBerry|webOS|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                //alert(mpd);
+                location.href=mpd;
+            }else{
+                console.log('NO es un celular.');
+                detectExtension(PlayE, mpd);
+            }
+       
+   
+
+</script>
